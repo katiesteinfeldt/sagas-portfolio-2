@@ -52,6 +52,7 @@ class ProjectItem extends Component {
                     {thumbnailDisplay}
                     <br />
                     {websiteDisplay}
+                    <br />
                     {githubDisplay}
                 </div>
             </div>
