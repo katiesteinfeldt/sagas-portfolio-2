@@ -9,11 +9,17 @@ class App extends Component {
 
 componentDidMount(){
   this.getProjects();
+  this.getTags();
 }
 
 getProjects = () => {
   console.log('going to get projects');
   this.props.dispatch({type: 'FETCH_PROJECTS'});
+}
+
+getTags = () => {
+  console.log('going to get tags');
+  this.props.dispatch({type: 'FETCH_TAGS'});
 }
 
   // Renders the entire app on the DOM

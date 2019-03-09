@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 5000;
 const projectRouter = require('./routes/projects.router');
+const tagsRouter = require('./routes/tags.router');
 
 
 /** ---------- MIDDLEWARE ---------- **/
@@ -11,6 +12,8 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 app.use('/portfolio', projectRouter);
+app.use('/tags', tagsRouter)
+
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
+import AdminForm from '../AdminForm/AdminForm'
 
 const styles = {
     header: {
@@ -26,6 +27,8 @@ class Admin extends Component {
                  </header>
                  <br/>
                  <Link to="/">Back To Projects</Link>
+                 <h2>Add New Project</h2>
+                 <AdminForm/>
             </div>
         );
     }

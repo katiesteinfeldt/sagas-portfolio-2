@@ -15,6 +15,7 @@ import createSagaMiddleware from 'redux-saga';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects)
+    yield takeEvery('FETCH_TAGS', fetchTags)
 }
 
 function* fetchProjects(action) {
@@ -24,6 +25,16 @@ function* fetchProjects(action) {
     }
     catch (error) {
         console.log('error with fetching projects from the server', error);
+    }
+}
+
+function* fetchTags(action) {
+    try {
+        const getTagsResponse = yield axios.get('/tags');
+        yield dispatch({ type: 'SET_TAGS', payload: getTagsResponse.data });
+    }
+    catch (error) {
+        console.log('error with fetching tags from the server', error);
     }
 }
 
