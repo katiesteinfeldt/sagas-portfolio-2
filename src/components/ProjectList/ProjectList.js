@@ -5,15 +5,6 @@ import ProjectItem from '../ProjectItem/ProjectItem';
 
 class ProjectList extends Component {
 
-    
-
-
-
-
-
-
-
-
     render() {
         return (
             <div className="projectList">
@@ -22,12 +13,6 @@ class ProjectList extends Component {
         );
     }
 }
-
-
-
-
-
-
 
 const mapStateToProps = (reduxState) => {
     return reduxState;

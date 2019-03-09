@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
+import TagsList from '../TagsList/TagsList';
+
 //import Typography from '@material-ui/core/Typography';
+
 
 const styles = {
     header: {
@@ -20,16 +23,13 @@ const styles = {
 class AdminForm extends Component {
 
     render() {
-        console.log(this.props.tags);
-
-        return (
+       
+    return (
             <div>
                 <form onSubmit={this.addProject}>
                     <input onChange={this.handleNameChange} type="text" placeholder="name" />
                     <input onChange={this.handlePriceChange} type="date" />
-                   
-                    <select placeholder="Select A Tag"></select>
-                        <option>Hello</option>
+                    <TagsList />
                     <input type="submit" value="Submit" />
                 </form>
             </div>
