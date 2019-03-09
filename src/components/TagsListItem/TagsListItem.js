@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 
 class TagsListItem extends Component {
 
+
     render() {
         return (
-            <option>{this.props.tag.name}</option>
+            <option value={this.props.tag.name}>{this.props.tag.name}</option>
         );
     }
 }
