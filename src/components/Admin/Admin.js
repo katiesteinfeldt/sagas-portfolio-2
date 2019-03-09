@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const styles = {
     header: {
@@ -23,6 +24,8 @@ class Admin extends Component {
                  <header>
                     <Typography className={this.props.classes.header} variant="h2">Admin</Typography>
                  </header>
+                 <br/>
+                 <Link to="/">Back To Projects</Link>
             </div>
         );
     }
