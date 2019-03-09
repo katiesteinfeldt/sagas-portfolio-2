@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ProjectItem.css';
-import { BrowserRouter as Router } from "react-router-dom";
+//import { BrowserRouter as Router } from "react-router-dom";
 
 class ProjectItem extends Component {
 
@@ -52,7 +52,6 @@ class ProjectItem extends Component {
                     {thumbnailDisplay}
                     <br />
                     {websiteDisplay}
-                    <br />
                     {githubDisplay}
                 </div>
             </div>
