@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ProjectItem.css';
 //import { BrowserRouter as Router } from "react-router-dom";
+import Header from '../Header/Header';
 
 class ProjectItem extends Component {
 
@@ -44,6 +45,7 @@ class ProjectItem extends Component {
 
         return (
             <div>
+                <Header />
                 <div>
                     {this.props.project.name}
                     <br/>

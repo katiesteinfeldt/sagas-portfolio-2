@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import ProjectList from '../ProjectList/ProjectList';
-import Header from '../Header/Header';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import Admin from '../Admin/Admin';
 
@@ -23,7 +22,6 @@ getProjects = () => {
     return (
       <Router>
       <div>
-        <Header />
         <Route exact path="/" component={ProjectList}/>
         <Route exact path="/admin" component={Admin}/>
       </div>
