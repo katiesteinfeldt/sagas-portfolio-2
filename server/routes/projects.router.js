@@ -25,6 +25,28 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     console.log(req.body);
     const newProject = req.body;
+    if (newProject.tag_id === 'React') {
+        newProject.tag_id = 1;
+    }
+    else if (newProject.tag_id === 'jQuery') {
+        newProject.tag_id = 2;
+    }
+    else if (newProject.tag_id === 'Node') {
+        newProject.tag_id = 3;
+    }
+    else if (newProject.tag_id === 'SQL') {
+        newProject.tag_id = 4;
+    }
+    else if (newProject.tag_id === 'Redux') {
+        newProject.tag_id = 5;
+    }
+    else if (newProject.tag_id === 'HTML') {
+        newProject.tag_id = 6;
+    }
+    else {
+        newProject.tag_id = null;
+    }
+    
     const queryText = `INSERT INTO "projects" ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id")
                     VALUES ($1, $2, $3, $4, $5, $6, $7)`;
     const queryValues = [

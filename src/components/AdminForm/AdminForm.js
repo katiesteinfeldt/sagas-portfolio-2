@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
-import TagsList from '../TagsList/TagsList';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableHead from '@material-ui/core/TableHead';
@@ -63,7 +62,7 @@ class AdminForm extends Component {
                 thumbnail: '',
                 website: '',
                 github: '',
-                date_completed: '',
+                date_completed: '2019-03-01',
                 tag_id: '',
             }
         });
@@ -84,13 +83,18 @@ class AdminForm extends Component {
         }
     }
 
+
     render() {
         return (
             <Paper className={this.props.classes.root}>
                 <form onSubmit={this.addNewProject}>
                     <input value={this.state.project.name} onChange={this.handleChangeFor('name')} placeholder="name" />
                     <input value={this.state.project.date_completed} onChange={this.handleChangeFor('date_completed')} type="date" />
-                    <TagsList onChange={this.handleChangeFor('tag_id')}/>
+                    <select value={this.state.project.tag_id} onChange={this.handleChangeFor('tag_id')}>
+                        {this.props.tags.map(tag =>
+                            <option  key={tag.id}>{tag.name}</option>
+                            )}
+                    </select>
                     <input value={this.state.project.github} onChange={this.handleChangeFor('github')} placeholder="Github" />
                     <input value={this.state.project.website} onChange={this.handleChangeFor('website')} placeholder="Website (optional)" />
                     <input value={this.state.project.description} onChange={this.handleChangeFor('description')} placeholder="Description" />

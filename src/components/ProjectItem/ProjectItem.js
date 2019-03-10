@@ -32,6 +32,7 @@ class ProjectItem extends Component {
         let thumbnailDisplay;
         let websiteDisplay;
         let githubDisplay;
+        let tagidDisplay;
 
         if (this.props.project.description === '') {
             descriptionDisplay = null;
@@ -46,7 +47,29 @@ class ProjectItem extends Component {
         else {
             thumbnailDisplay = <img alt={this.props.project.description} src={this.props.project.thumbnail} />
         }
-        
+
+        if (this.props.project.tag_id === 1) {
+            tagidDisplay = 'React';
+        }
+        else if (this.props.project.tag_id === 2) {
+            tagidDisplay = 'jQuery';
+        }
+        else if (this.props.project.tag_id === 3) {
+            tagidDisplay = 'Node';
+        }
+        else if (this.props.project.tag_id === 4) {
+            tagidDisplay = 'SQL';
+        }
+        else if (this.props.project.tag_id === 5) {
+            tagidDisplay = 'Redux';
+        }
+        else if (this.props.project.tag_id === 6) {
+            tagidDisplay = 'HTML';
+        }
+        else {
+            tagidDisplay = null;
+        }
+
         if (this.props.project.website) {
             websiteDisplay = <Button size="small" color="primary">Website</Button>;
         }
@@ -68,6 +91,7 @@ class ProjectItem extends Component {
                         <Typography variant='h4'>{this.props.project.name}</Typography>
                         <Divider />
                         <Typography>{descriptionDisplay}</Typography>
+                        <Typography>{tagidDisplay}</Typography>
                         {thumbnailDisplay}
                         <CardActions>
                             {websiteDisplay}
