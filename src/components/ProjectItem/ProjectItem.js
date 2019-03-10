@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ProjectItem.css';
 //import { BrowserRouter as Router } from "react-router-dom";
-import Header from '../Header/Header';
 
 class ProjectItem extends Component {
 
@@ -19,15 +18,13 @@ class ProjectItem extends Component {
             descriptionDisplay = this.props.project.description;
         }
 
-        if (this.props.project.thumbnail === 'public/images/empty-image.png') {
+        if (this.props.project.thumbnail === '') {
             thumbnailDisplay = <img alt="Empty" src="images/empty-image.png" />
         }
-        else if (this.props.project.thumbnail === 'public/images/garden.png') {
-            thumbnailDisplay = <img alt="Saga Garden Project" src="images/garden.png" />
-        }
         else {
-            thumbnailDisplay = null;
+            thumbnailDisplay = <img alt={this.props.project.description} src={this.props.project.thumbnail} />
         }
+        
 
         if (this.props.project.website === '') {
             websiteDisplay = null;
@@ -43,9 +40,11 @@ class ProjectItem extends Component {
             githubDisplay = this.props.project.github;
         }
 
+
         return (
+        
             <div>
-                <Header />
+                {this.props.project.name}
                 <div>
                     {this.props.project.name}
                     <br/>
