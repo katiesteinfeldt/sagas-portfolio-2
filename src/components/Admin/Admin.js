@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
-import AdminForm from '../AdminForm/AdminForm'
+import AdminForm from '../AdminForm/AdminForm';
+import Button from '@material-ui/core/Button';
 
 const styles = {
     header: {
@@ -16,6 +17,13 @@ const styles = {
     },
     title: {
         padding: '20px',
+    },
+    button: {
+        padding: '10px',
+        marginLeft: '20px',
+        marginTop: '20px',
+        backgroundColor: '#B0BEC5',
+        color: 'white',
     }
 }
 
@@ -27,10 +35,8 @@ class Admin extends Component {
                 <header>
                 <Typography className={this.props.classes.header} variant="h2">Admin</Typography>
                 </header>
-                <Link to="/">Back To Projects</Link>
-                <br />
+                <Button className={this.props.classes.button} component={Link} to="/">Back To Projects</Button>
                 <Typography className={this.props.classes.title} variant='h4'>Add New Project</Typography>
-                <br />
                 <AdminForm />
             </div>
         );
