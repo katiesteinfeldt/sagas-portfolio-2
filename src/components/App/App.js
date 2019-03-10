@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './App.css';
 import ProjectList from '../ProjectList/ProjectList';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import Admin from '../Admin/Admin';
