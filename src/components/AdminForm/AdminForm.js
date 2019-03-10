@@ -8,6 +8,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 
+
 //import Typography from '@material-ui/core/Typography';
 
 const styles = {
@@ -53,7 +54,6 @@ class AdminForm extends Component {
 
     addNewProject = event => {
         event.preventDefault();
-        console.log(this.state.project);
         this.props.dispatch({ type: 'POST_PROJECT', payload: this.state.project })
         this.setState({
             project: {

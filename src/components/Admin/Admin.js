@@ -19,7 +19,6 @@ const styles = {
 class Admin extends Component {
 
     render() {
-
         return (
             <div>
                 <header>

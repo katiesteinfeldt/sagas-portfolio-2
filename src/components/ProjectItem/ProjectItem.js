@@ -47,7 +47,6 @@ class ProjectItem extends Component {
         else {
             thumbnailDisplay = <img alt={this.props.project.description} src={this.props.project.thumbnail} />
         }
-
         if (this.props.project.tag_id === 1) {
             tagidDisplay = 'React';
         }
@@ -69,21 +68,20 @@ class ProjectItem extends Component {
         else {
             tagidDisplay = null;
         }
-
         if (this.props.project.website) {
-            websiteDisplay = <Button size="small" color="primary">Website</Button>;
+            websiteDisplay = <Button><a target="_blank" rel="noopener noreferrer" href={this.props.project.website}>Website</a></Button>
         }
         else {
             websiteDisplay = null;
         }
        
         if (this.props.project.github) {
-            githubDisplay = <Button size="small" color="primary">Github</Button>;
+            githubDisplay = <Button><a target="_blank" rel="noopener noreferrer" href={this.props.project.github}>Github</a></Button>
         }
         else {
             githubDisplay = null;
         }
-
+        
         return (
         <Grid item xs={5}>
                 <Card className={this.props.classes.card}>
