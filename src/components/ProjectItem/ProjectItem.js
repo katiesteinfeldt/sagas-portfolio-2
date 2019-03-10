@@ -44,8 +44,8 @@ class ProjectItem extends Component {
         return (
         
             <div>
-                {this.props.project.name}
                 <div>
+                    <br/>
                     {this.props.project.name}
                     <br/>
                     {descriptionDisplay}
