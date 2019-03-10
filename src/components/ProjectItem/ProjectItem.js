@@ -22,6 +22,13 @@ const styles = {
     },
     cardText: {
         color: 'white',
+    },
+    typo: {
+        color: '#607D8B',
+    },
+    button: {
+        backgroundColor: '#B0BEC5',
+        color: 'white',
     }
 };
 
@@ -69,14 +76,14 @@ class ProjectItem extends Component {
             tagidDisplay = null;
         }
         if (this.props.project.website) {
-            websiteDisplay = <Button><a target="_blank" rel="noopener noreferrer" href={this.props.project.website}>Website</a></Button>
+            websiteDisplay = <Button variant="contained" ><a target="_blank" rel="noopener noreferrer" href={this.props.project.website}>Website</a></Button>
         }
         else {
             websiteDisplay = null;
         }
        
         if (this.props.project.github) {
-            githubDisplay = <Button><a target="_blank" rel="noopener noreferrer" href={this.props.project.github}>Github</a></Button>
+            githubDisplay = <Button variant="contained" className={this.props.classes.button}><a target="_blank" rel="noopener noreferrer" href={this.props.project.github}>Github</a></Button>
         }
         else {
             githubDisplay = null;
@@ -86,10 +93,10 @@ class ProjectItem extends Component {
         <Grid item xs={5}>
                 <Card className={this.props.classes.card}>
                     <CardContent>
-                        <Typography variant='h4'>{this.props.project.name}</Typography>
+                        <Typography className={this.props.classes.typo} variant='h4'>{this.props.project.name}</Typography>
                         <Divider />
-                        <Typography>{descriptionDisplay}</Typography>
-                        <Typography>{tagidDisplay}</Typography>
+                        <Typography className={this.props.classes.typo}>{descriptionDisplay}</Typography>
+                        <Typography className={this.props.classes.typo}>{tagidDisplay}</Typography>
                         {thumbnailDisplay}
                         <CardActions>
                             {websiteDisplay}
