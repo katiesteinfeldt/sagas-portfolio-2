@@ -26,10 +26,6 @@ const styles = {
     typo: {
         color: '#607D8B',
     },
-    button: {
-        backgroundColor: '#B0BEC5',
-        color: 'white',
-    }
 };
 
 class ProjectItem extends Component {
@@ -76,14 +72,14 @@ class ProjectItem extends Component {
             tagidDisplay = null;
         }
         if (this.props.project.website) {
-            websiteDisplay = <Button variant="contained" ><a target="_blank" rel="noopener noreferrer" href={this.props.project.website}>Website</a></Button>
+            websiteDisplay = <Button variant="outlined"><a target="_blank" rel="noopener noreferrer" href={this.props.project.website}>Website</a></Button>
         }
         else {
             websiteDisplay = null;
         }
        
         if (this.props.project.github) {
-            githubDisplay = <Button variant="contained" className={this.props.classes.button}><a target="_blank" rel="noopener noreferrer" href={this.props.project.github}>Github</a></Button>
+            githubDisplay = <Button variant="outlined"><a target="_blank" rel="noopener noreferrer" href={this.props.project.github}>Github</a></Button>
         }
         else {
             githubDisplay = null;
