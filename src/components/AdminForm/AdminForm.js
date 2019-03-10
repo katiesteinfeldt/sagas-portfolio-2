@@ -25,7 +25,7 @@ class AdminForm extends Component {
             thumbnail: '',
             website: '',
             github: '',
-            date_completed: 1,
+            date_completed: '2019-03-01',
             tag_id: 1,
         }
     }
@@ -78,12 +78,12 @@ class AdminForm extends Component {
         return (
             <div>
                 <form onSubmit={this.addNewProject}>
-                    <input onChange={this.handleChangeFor('name')} placeholder="name" />
-                    <input onChange={this.handleChangeFor('date_completed')} type="date" />
+                    <input value={this.state.project.name} onChange={this.handleChangeFor('name')} placeholder="name" />
+                    <input value={this.state.project.date_completed} onChange={this.handleChangeFor('date_completed')} type="date" />
                     <TagsList onChange={this.handleChangeFor('tag_id')}/>
-                    <input onChange={this.handleChangeFor('github')} placeholder="Github" />
-                    <input onChange={this.handleChangeFor('website')} placeholder="Website (optional)" />
-                    <input onChange={this.handleChangeFor('description')} placeholder="Description" />
+                    <input value={this.state.project.github} onChange={this.handleChangeFor('github')} placeholder="Github" />
+                    <input value={this.state.project.website} onChange={this.handleChangeFor('website')} placeholder="Website (optional)" />
+                    <input value={this.state.project.description} onChange={this.handleChangeFor('description')} placeholder="Description" />
                     <input type="submit" value="Submit" />
                 </form>
                 <table>
