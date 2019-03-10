@@ -17,11 +17,12 @@ const styles = {
     },
     title: {
         padding: '20px',
+        marginTop: '20px',
     },
     button: {
         padding: '10px',
         marginLeft: '20px',
-        marginTop: '20px',
+        marginTop: '30px',
         backgroundColor: '#B0BEC5',
         color: 'white',
     }
