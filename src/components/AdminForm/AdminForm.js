@@ -23,6 +23,7 @@ const styles = {
     root: {
         width: '70%',
         overflowX: 'auto',
+        marginLeft: '20px',
     },
     table: {
         minWidth: 200,

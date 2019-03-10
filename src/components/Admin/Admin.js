@@ -14,6 +14,9 @@ const styles = {
         backgroundColor: '#607D8B',
         color: 'white',
     },
+    title: {
+        padding: '20px',
+    }
 }
 
 class Admin extends Component {
@@ -22,12 +25,11 @@ class Admin extends Component {
         return (
             <div>
                 <header>
-                    <Typography className={this.props.classes.header} variant="h2">Admin</Typography>
+                <Typography className={this.props.classes.header} variant="h2">Admin</Typography>
                 </header>
-                <br />
                 <Link to="/">Back To Projects</Link>
                 <br />
-                <Typography variant='h3'>Add New Project</Typography>
+                <Typography className={this.props.classes.title} variant='h4'>Add New Project</Typography>
                 <br />
                 <AdminForm />
             </div>
