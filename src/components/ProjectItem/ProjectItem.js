@@ -1,7 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './ProjectItem.css';
-//import { BrowserRouter as Router } from "react-router-dom";
+import Grid from '@material-ui/core/Grid';
+import Card from '@material-ui/core/Card';
+import { CardContent, CardActions, Divider } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+
+const styles = {
+    card: {
+        minWidth: 275,
+        maxWidth: 350,
+        margin: 22,
+        backgroundColor: 'white',
+
+    },
+    delete: {
+        width: '100%',
+        backgroundColor: 'white',
+    },
+    cardText: {
+        color: 'white',
+    }
+};
 
 class ProjectItem extends Component {
 
@@ -25,7 +45,6 @@ class ProjectItem extends Component {
             thumbnailDisplay = <img alt={this.props.project.description} src={this.props.project.thumbnail} />
         }
         
-
         if (this.props.project.website === '') {
             websiteDisplay = null;
         }
@@ -40,11 +59,10 @@ class ProjectItem extends Component {
             githubDisplay = this.props.project.github;
         }
 
-
         return (
-        
-            <div>
-                <div>
+        <Grid item xs={3}>
+                <Card className={this.props.classes.card}>
+                    <CardContent>
                     <br/>
                     {this.props.project.name}
                     <br/>
@@ -55,18 +73,16 @@ class ProjectItem extends Component {
                     {websiteDisplay}
                     <br />
                     {githubDisplay}
-                </div>
-            </div>
+                    </CardContent>
+                </Card>
+            </Grid>
         );
     }
 }
-
-
-
 
 
 const mapStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default connect(mapStateToProps)(ProjectItem);
+export default withStyles(styles)(connect(mapStateToProps)(ProjectItem));
