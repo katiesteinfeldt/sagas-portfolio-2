@@ -38,7 +38,7 @@ class AdminForm extends Component {
             website: '',
             github: '',
             date_completed: '2019-03-01',
-            tag_id: 1,
+            tag_id: '',
         }
     }
 
@@ -91,6 +91,7 @@ class AdminForm extends Component {
                     <input value={this.state.project.name} onChange={this.handleChangeFor('name')} placeholder="name" />
                     <input value={this.state.project.date_completed} onChange={this.handleChangeFor('date_completed')} type="date" />
                     <select value={this.state.project.tag_id} onChange={this.handleChangeFor('tag_id')}>
+                        <option>- Choose Language -</option>
                         {this.props.tags.map(tag =>
                             <option  key={tag.id}>{tag.name}</option>
                             )}
