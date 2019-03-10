@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import TagsList from '../TagsList/TagsList';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import TableCell from '@material-ui/core/TableCell';
+import Paper from '@material-ui/core/Paper';
 
 //import Typography from '@material-ui/core/Typography';
 
@@ -13,6 +19,13 @@ const styles = {
         marginTop: '20px',
         backgroundColor: '#607D8B',
         color: 'white',
+    },
+    root: {
+        width: '70%',
+        overflowX: 'auto',
+    },
+    table: {
+        minWidth: 200,
     },
 }
 
@@ -58,25 +71,22 @@ class AdminForm extends Component {
 
     createAdminList() {
         return this.props.projects.map(project =>
-            <tr className="admin-row" key={project.id}>
-                <td>{project.name}</td>
-                <td><button onClick={this.handleDelete(project.id)}>Delete</button></td>
-            </tr>
+            <TableRow className="admin-row" key={project.id}>
+                <TableCell>{project.name}</TableCell>
+                <TableCell><button onClick={this.handleDelete(project.id)}>Delete</button></TableCell>
+            </TableRow>
         )
     }
 
     handleDelete = id => {
         return () => {
-            console.log('delete was clicked', id);
             this.props.dispatch({type: 'DELETE_PROJECT', payload: id})
         }
     }
 
-
     render() {
-
         return (
-            <div>
+            <Paper className={this.props.classes.root}>
                 <form onSubmit={this.addNewProject}>
                     <input value={this.state.project.name} onChange={this.handleChangeFor('name')} placeholder="name" />
                     <input value={this.state.project.date_completed} onChange={this.handleChangeFor('date_completed')} type="date" />
@@ -86,18 +96,18 @@ class AdminForm extends Component {
                     <input value={this.state.project.description} onChange={this.handleChangeFor('description')} placeholder="Description" />
                     <input type="submit" value="Submit" />
                 </form>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Delete</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <Table className={this.props.classes.table}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Name</TableCell>
+                            <TableCell>Delete</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                         {this.createAdminList()}
-                    </tbody>
-                </table>
-            </div>
+                    </TableBody>
+                </Table>
+            </Paper>
         );
     }
 }

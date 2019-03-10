@@ -62,7 +62,7 @@ class ProjectItem extends Component {
         }
 
         return (
-        <Grid item xs={3}>
+        <Grid item xs={5}>
                 <Card className={this.props.classes.card}>
                     <CardContent>
                         <Typography variant='h4'>{this.props.project.name}</Typography>
