@@ -17,6 +17,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects)
     yield takeEvery('FETCH_TAGS', fetchTags)
     yield takeEvery('POST_PROJECT', postProject)
+    yield takeEvery('DELETE_PROJECT', deleteProject)
 }
 
 function* fetchProjects(action) {
@@ -47,6 +48,16 @@ function* postProject(action) {
     }
     catch (error) {
         console.log('error with post axios request', error);
+    }
+}
+
+function* deleteProject(action) {
+    try {
+        yield axios.delete('/portfolio/' + action.payload);
+        yield dispatch({ type: 'FETCH_PROJECTS' });
+    }
+    catch (error) {
+        console.log('error deleting', action, error);
     }
 }
 

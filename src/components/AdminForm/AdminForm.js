@@ -68,6 +68,7 @@ class AdminForm extends Component {
     handleDelete = id => {
         return () => {
             console.log('delete was clicked', id);
+            this.props.dispatch({type: 'DELETE_PROJECT', payload: id})
         }
     }
 

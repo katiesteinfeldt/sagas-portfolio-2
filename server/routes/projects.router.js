@@ -44,6 +44,15 @@ router.post('/', (req, res) => {
         });
 });
 
+router.delete('/:id', (req, res) => {
+    const queryText = 'DELETE FROM projects WHERE id=$1';
+    pool.query(queryText, [req.params.id])
+        .then(() => { res.sendStatus(200); })
+        .catch((err) => {
+            console.log('Error completing DELETE projects query', err);
+            res.sendStatus(500);
+        });
+});
 
 
 
