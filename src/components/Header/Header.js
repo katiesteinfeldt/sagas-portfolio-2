@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
+/* ------- material ui imports -------- */
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
+//material ui styles
 const styles = {
     header: {
         textAlign: 'center',

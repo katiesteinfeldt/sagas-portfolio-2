@@ -14,7 +14,6 @@ const styles = {
         maxWidth: 500,
         margin: 22,
         backgroundColor: 'white',
-
     },
     delete: {
         width: '100%',
@@ -25,6 +24,11 @@ const styles = {
     },
     typo: {
         color: '#607D8B',
+    },
+    img: {
+        maxWidth: '350px',
+        maxHeight: '350px',
+        margin: '10px',
     },
 };
 
@@ -45,10 +49,10 @@ class ProjectItem extends Component {
         }
 
         if (this.props.project.thumbnail === '' || this.props.project.thumbnail === null) {
-            thumbnailDisplay = <img alt="Empty" src="images/empty-image.png" />
+            thumbnailDisplay = <img className={this.props.classes.img} alt="Empty" src="images/empty-image.png" />
         }
         else {
-            thumbnailDisplay = <img alt={this.props.project.description} src={this.props.project.thumbnail} />
+            thumbnailDisplay = <img className={this.props.classes.img} alt={this.props.project.description} src={this.props.project.thumbnail} />
         }
         if (this.props.project.tag_id === 1) {
             tagidDisplay = 'React';
