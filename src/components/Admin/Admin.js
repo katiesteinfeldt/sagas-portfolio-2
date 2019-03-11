@@ -21,6 +21,7 @@ const styles = {
     title: {
         padding: '20px',
         marginTop: '20px',
+        color: '#607D8B',
     },
     button: {
         padding: '10px',
