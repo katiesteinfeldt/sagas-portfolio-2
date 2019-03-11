@@ -44,9 +44,11 @@ function* postProject(action) {
     console.log('rootSaga was hit - post', action.payload);
     try {
         yield axios.post('/portfolio', action.payload);
+        alert('Success!');
         yield dispatch({ type: 'FETCH_PROJECTS', fetchProjects })
     }
     catch (error) {
+        alert('Project was not posted to server');
         console.log('error with post axios request', error);
     }
 }
