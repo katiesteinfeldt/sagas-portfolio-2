@@ -37,9 +37,9 @@ class ProjectItem extends Component {
                 <Card className={this.props.classes.card}>
                     <CardContent>
                         <Typography className={this.props.classes.typo} variant='h4'>{this.props.project.name}</Typography>
+                        <ProjectTagId project={this.props.project} />
                         <Divider />
                         <ProjectDescription project={this.props.project} />
-                        <ProjectTagId project={this.props.project}/>
                         <ProjectThumbnail project={this.props.project}/>
                         <CardActions>
                         <ProjectWebsite project={this.props.project}/>
