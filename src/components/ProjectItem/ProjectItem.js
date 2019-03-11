@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './ProjectItem.css';
+
+/* ------- material ui imports -------- */
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import { CardContent, CardActions, Divider} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import ProjectDescription from '../Project Description/ProjectDescription';
+import ProjectThumbnail from '../ProjectThumbnail/ProjectThumbnail';
 
+/* ------- material ui styles -------- */
 const styles = {
     card: {
         minWidth: 400,
@@ -25,35 +29,16 @@ const styles = {
     typo: {
         color: '#607D8B',
     },
-    img: {
-        maxWidth: '350px',
-        maxHeight: '350px',
-        margin: '10px',
-    },
 };
 
 class ProjectItem extends Component {
 
     render() {
-        let descriptionDisplay;
-        let thumbnailDisplay;
         let websiteDisplay;
         let githubDisplay;
         let tagidDisplay;
 
-        if (this.props.project.description === '') {
-            descriptionDisplay = null;
-        }
-        else {
-            descriptionDisplay = this.props.project.description;
-        }
-
-        if (this.props.project.thumbnail === '' || this.props.project.thumbnail === null) {
-            thumbnailDisplay = <img className={this.props.classes.img} alt="Empty" src="images/empty-image.png" />
-        }
-        else {
-            thumbnailDisplay = <img className={this.props.classes.img} alt={this.props.project.description} src={this.props.project.thumbnail} />
-        }
+    /* -- switch language id to name and conditionally render if not empty -- */
         if (this.props.project.tag_id === 1) {
             tagidDisplay = 'React';
         }
@@ -75,13 +60,14 @@ class ProjectItem extends Component {
         else {
             tagidDisplay = null;
         }
+    /* -- conditionally render project website if not empty -- */
         if (this.props.project.website) {
             websiteDisplay = <Button variant="outlined"><a target="_blank" rel="noopener noreferrer" href={this.props.project.website}>Website</a></Button>
         }
         else {
             websiteDisplay = null;
         }
-       
+    /* -- conditionally render project github link if not empty -- */   
         if (this.props.project.github) {
             githubDisplay = <Button variant="outlined"><a target="_blank" rel="noopener noreferrer" href={this.props.project.github}>Github</a></Button>
         }
@@ -95,9 +81,9 @@ class ProjectItem extends Component {
                     <CardContent>
                         <Typography className={this.props.classes.typo} variant='h4'>{this.props.project.name}</Typography>
                         <Divider />
-                        <Typography className={this.props.classes.typo}>{descriptionDisplay}</Typography>
+                        <ProjectDescription project={this.props.project} />
                         <Typography className={this.props.classes.typo}>{tagidDisplay}</Typography>
-                        {thumbnailDisplay}
+                        <ProjectThumbnail project={this.props.project}/>
                         <CardActions>
                             {websiteDisplay}
                             {githubDisplay}
