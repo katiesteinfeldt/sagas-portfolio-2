@@ -11,19 +11,17 @@ componentDidMount(){
   this.getTags();
 }
 
+//gets list of projects by dispatching to redux store/saga
 getProjects = () => {
-  console.log('going to get projects');
   this.props.dispatch({type: 'FETCH_PROJECTS'});
 }
 
+//gets list of tags by dispatching to redux store/saga
 getTags = () => {
-  console.log('going to get tags');
   this.props.dispatch({type: 'FETCH_TAGS'});
 }
 
-  // Renders the entire app on the DOM
   render() {
-    console.log(this.props.projects);
     return (
       <Router>
       <div>

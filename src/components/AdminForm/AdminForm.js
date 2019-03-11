@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+/* ------- material ui imports ------- */
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -8,9 +10,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableCell from '@material-ui/core/TableCell';
 import Paper from '@material-ui/core/Paper';
 
-
-//import Typography from '@material-ui/core/Typography';
-
+/* ------- material ui styles ------- */
 const styles = {
     header: {
         textAlign: 'center',
@@ -44,6 +44,7 @@ class AdminForm extends Component {
         }
     }
 
+    // sets local state to input values
     handleChangeFor = (propertyName) => (event) => {
         this.setState({
             project: {
@@ -53,6 +54,7 @@ class AdminForm extends Component {
         });
     }
 
+    // adds new project to database by dispatching to saga in redux store and clears inputs on click
     addNewProject = event => {
         event.preventDefault();
         this.props.dispatch({ type: 'POST_PROJECT', payload: this.state.project })
@@ -69,6 +71,7 @@ class AdminForm extends Component {
         });
     }
 
+    //maps through array of projects in projects reducer display name on dom
     createAdminList() {
         return this.props.projects.map(project =>
             <TableRow className="admin-row" key={project.id}>
@@ -78,12 +81,12 @@ class AdminForm extends Component {
         )
     }
 
+    //deletes project from database by dispatching to saga in redux store
     handleDelete = id => {
         return () => {
             this.props.dispatch({type: 'DELETE_PROJECT', payload: id})
         }
     }
-
 
     render() {
         return (
