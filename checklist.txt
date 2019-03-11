@@ -15,4 +15,4 @@ Admin Page
 General Tasks
  [x] Commit your code frequently! You should have at 15+ commits on a project of this size. Use branches to help break down your features.
  [x] Comment your code.
- [ ] Update the README to include a description of the project in your own words.
+ [x] Update the README to include a description of the project in your own words.
