@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import AdminForm from '../AdminForm/AdminForm';
 import Button from '@material-ui/core/Button';
 
+//material ui styles
 const styles = {
     header: {
         textAlign: 'center',
@@ -33,9 +34,7 @@ class Admin extends Component {
     render() {
         return (
             <div>
-                <header>
                 <Typography className={this.props.classes.header} variant="h2">Admin</Typography>
-                </header>
                 <Button className={this.props.classes.button} component={Link} to="/">Back To Projects</Button>
                 <Typography className={this.props.classes.title} variant='h4'>Add New Project</Typography>
                 <AdminForm />

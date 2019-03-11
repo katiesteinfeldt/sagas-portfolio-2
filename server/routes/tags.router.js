@@ -2,6 +2,7 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+/** -------- GETS TAGS FROM DATABASE ------- **/
 router.get('/', (req, res) => {
     const queryText = 'SELECT * FROM "tags"';
     pool.query(queryText)
@@ -11,17 +12,6 @@ router.get('/', (req, res) => {
             res.sendStatus(500);
         })
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 module.exports = router;
