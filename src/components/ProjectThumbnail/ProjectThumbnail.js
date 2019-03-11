@@ -19,7 +19,7 @@ class ProjectThumbnail extends Component {
     render() {
         let thumbnailDisplay;
 
-    /* -- conditionally render project image if not empty -- */
+        /* -- conditionally render project image if not empty -- */
         if (this.props.project.thumbnail === '' || this.props.project.thumbnail === null) {
             thumbnailDisplay = <img className={this.props.classes.img} alt="Empty" src="images/empty-image.png" />
         }

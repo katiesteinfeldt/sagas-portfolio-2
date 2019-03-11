@@ -2,14 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 /* ------- material ui imports -------- */
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 
-
-//material ui styles
-const styles = {
-   
-};
 
 class ProjectGithub extends Component {
 
@@ -23,7 +17,7 @@ class ProjectGithub extends Component {
         else {
             githubDisplay = null;
         }
-      
+
         return (
             <div>
                 {githubDisplay}
@@ -36,4 +30,4 @@ const mapStateToProps = (reduxState) => {
     return reduxState;
 }
 
-export default withStyles(styles)(connect(mapStateToProps)(ProjectGithub));
+export default connect(mapStateToProps)(ProjectGithub);

@@ -7,9 +7,6 @@ import Typography from '@material-ui/core/Typography';
 
 //material ui styles
 const styles = {
-    cardText: {
-        color: 'white',
-    },
     typo: {
         color: '#607D8B',
     },

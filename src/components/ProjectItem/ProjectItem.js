@@ -7,11 +7,13 @@ import Card from '@material-ui/core/Card';
 import { CardContent, CardActions, Divider} from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+
+/* ------- project component imports -------- */
 import ProjectDescription from '../Project Description/ProjectDescription';
 import ProjectThumbnail from '../ProjectThumbnail/ProjectThumbnail';
 import ProjectTagId from '../ProjectTagId/ProjectTagId';
 import ProjectGithub from '../ProjectGithub/ProjectGithub';
+import ProjectWebsite from '../ProjectWebsite/ProjectWebsite';
 
 /* ------- material ui styles -------- */
 const styles = {
@@ -21,13 +23,6 @@ const styles = {
         margin: 22,
         backgroundColor: 'white',
     },
-    delete: {
-        width: '100%',
-        backgroundColor: 'white',
-    },
-    cardText: {
-        color: 'white',
-    },
     typo: {
         color: '#607D8B',
     },
@@ -36,15 +31,6 @@ const styles = {
 class ProjectItem extends Component {
 
     render() {
-        let websiteDisplay;
-       
-    /* -- conditionally render project website if not empty -- */
-        if (this.props.project.website) {
-            websiteDisplay = <Button variant="outlined"><a target="_blank" rel="noopener noreferrer" href={this.props.project.website}>Website</a></Button>
-        }
-        else {
-            websiteDisplay = null;
-        }
         
         return (
         <Grid item xs={5}>
@@ -56,7 +42,7 @@ class ProjectItem extends Component {
                         <ProjectTagId project={this.props.project}/>
                         <ProjectThumbnail project={this.props.project}/>
                         <CardActions>
-                            {websiteDisplay}
+                        <ProjectWebsite project={this.props.project}/>
                         <ProjectGithub project={this.props.project}/>   
                         </CardActions>
                     </CardContent>
@@ -65,7 +51,6 @@ class ProjectItem extends Component {
         );
     }
 }
-
 
 const mapStateToProps = (reduxState) => {
     return reduxState;
