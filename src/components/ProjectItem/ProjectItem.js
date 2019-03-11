@@ -11,6 +11,7 @@ import Button from '@material-ui/core/Button';
 import ProjectDescription from '../Project Description/ProjectDescription';
 import ProjectThumbnail from '../ProjectThumbnail/ProjectThumbnail';
 import ProjectTagId from '../ProjectTagId/ProjectTagId';
+import ProjectGithub from '../ProjectGithub/ProjectGithub';
 
 /* ------- material ui styles -------- */
 const styles = {
@@ -36,7 +37,6 @@ class ProjectItem extends Component {
 
     render() {
         let websiteDisplay;
-        let githubDisplay;
        
     /* -- conditionally render project website if not empty -- */
         if (this.props.project.website) {
@@ -44,13 +44,6 @@ class ProjectItem extends Component {
         }
         else {
             websiteDisplay = null;
-        }
-    /* -- conditionally render project github link if not empty -- */   
-        if (this.props.project.github) {
-            githubDisplay = <Button variant="outlined"><a target="_blank" rel="noopener noreferrer" href={this.props.project.github}>Github</a></Button>
-        }
-        else {
-            githubDisplay = null;
         }
         
         return (
@@ -64,7 +57,7 @@ class ProjectItem extends Component {
                         <ProjectThumbnail project={this.props.project}/>
                         <CardActions>
                             {websiteDisplay}
-                            {githubDisplay}
+                        <ProjectGithub project={this.props.project}/>   
                         </CardActions>
                     </CardContent>
                 </Card>
