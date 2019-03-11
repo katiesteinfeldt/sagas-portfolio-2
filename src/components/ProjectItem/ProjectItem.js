@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import ProjectDescription from '../Project Description/ProjectDescription';
 import ProjectThumbnail from '../ProjectThumbnail/ProjectThumbnail';
+import ProjectTagId from '../ProjectTagId/ProjectTagId';
 
 /* ------- material ui styles -------- */
 const styles = {
@@ -36,30 +37,7 @@ class ProjectItem extends Component {
     render() {
         let websiteDisplay;
         let githubDisplay;
-        let tagidDisplay;
-
-    /* -- switch language id to name and conditionally render if not empty -- */
-        if (this.props.project.tag_id === 1) {
-            tagidDisplay = 'React';
-        }
-        else if (this.props.project.tag_id === 2) {
-            tagidDisplay = 'jQuery';
-        }
-        else if (this.props.project.tag_id === 3) {
-            tagidDisplay = 'Node';
-        }
-        else if (this.props.project.tag_id === 4) {
-            tagidDisplay = 'SQL';
-        }
-        else if (this.props.project.tag_id === 5) {
-            tagidDisplay = 'Redux';
-        }
-        else if (this.props.project.tag_id === 6) {
-            tagidDisplay = 'HTML';
-        }
-        else {
-            tagidDisplay = null;
-        }
+       
     /* -- conditionally render project website if not empty -- */
         if (this.props.project.website) {
             websiteDisplay = <Button variant="outlined"><a target="_blank" rel="noopener noreferrer" href={this.props.project.website}>Website</a></Button>
@@ -82,7 +60,7 @@ class ProjectItem extends Component {
                         <Typography className={this.props.classes.typo} variant='h4'>{this.props.project.name}</Typography>
                         <Divider />
                         <ProjectDescription project={this.props.project} />
-                        <Typography className={this.props.classes.typo}>{tagidDisplay}</Typography>
+                        <ProjectTagId project={this.props.project}/>
                         <ProjectThumbnail project={this.props.project}/>
                         <CardActions>
                             {websiteDisplay}
